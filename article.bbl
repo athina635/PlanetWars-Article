@@ -1,0 +1,57 @@
+\begin{thebibliography}{1}
+
+\bibitem{doc5}
+M.~N. Collazo, C.~Cotta, and A.~J. Fern{\'a}ndez-Leiva.
+\newblock Virtual player design using self-learning via competitive
+  coevolutionary algorithms.
+\newblock {\em Natural Computing}, 13(2):131--144, 2014.
+
+\bibitem{doc7}
+D.~Dasgupta, Z.~Ji, and F.~Gonzalez.
+\newblock Artificial immune system (ais) research in the last five years.
+\newblock In {\em Evolutionary Computation, 2003. CEC'03. The 2003 Congress
+  on}, volume~1, pages 123--130. IEEE, 2003.
+
+\bibitem{doc3}
+A.~Fern{\'a}ndez-Ares, P.~Garc{\'\i}a-S{\'a}nchez, A.~M. Mora, P.~A. Castillo,
+  J.~J.~M. Guerv{\'o}s, D.~Camacho, M.~G{\'o}mez-Mart{\'\i}n, and
+  P.~Gonz{\'a}lez-Calero.
+\newblock Designing competitive bots for a real time strategy game using
+  genetic programming.
+\newblock In {\em CoSECivi}, pages 159--172, 2014.
+
+\bibitem{doc4}
+A.~Fern{\'a}ndez-Ares, P.~Garc{\'\i}a-S{\'a}nchez, A.~M. Mora, and J.~Merelo.
+\newblock Adaptive bots for real-time strategy games via map characterization.
+\newblock In {\em Computational Intelligence and Games (CIG), 2012 IEEE
+  Conference on}, pages 417--721. IEEE, 2012.
+
+\bibitem{doc1}
+A.~Fern{\'a}ndez-Ares, A.~M. Mora, J.~J. Merelo, P.~Garc{\'\i}a-S{\'a}nchez,
+  and C.~Fernandes.
+\newblock Optimizing player behavior in a real-time strategy game using
+  evolutionary algorithms.
+\newblock In {\em Evolutionary Computation (CEC), 2011 IEEE Congress on}, pages
+  2017--2024. IEEE, 2011.
+
+\bibitem{doc6}
+A.~R. Jordehi.
+\newblock A chaotic artificial immune system optimisation algorithm for solving
+  global continuous optimisation problems.
+\newblock {\em Neural Computing and Applications}, 26(4):827--833, 2015.
+
+\bibitem{doc9}
+J.~Kim and P.~J. Bentley.
+\newblock An evaluation of negative selection in an artificial immune system
+  for network intrusion detection.
+\newblock In {\em Proceedings of the 3rd Annual Conference on Genetic and
+  Evolutionary Computation}, pages 1330--1337. Morgan Kaufmann Publishers Inc.,
+  2001.
+
+\bibitem{doc2}
+R.~Lara-Cabrera, C.~Cotta, and A.~J. Fern{\'a}ndez-Leiva.
+\newblock A review of computational intelligence in rts games.
+\newblock In {\em Foundations of Computational Intelligence (FOCI), 2013 IEEE
+  Symposium on}, pages 114--121. IEEE, 2013.
+
+\end{thebibliography}
