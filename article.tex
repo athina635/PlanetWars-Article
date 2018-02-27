@@ -250,7 +250,7 @@
 % in the LaTeX2e kernel, the most notable of which is that in current
 % LaTeX2e releases, the ordering of single and double column floats is not
 % guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
-% single column figure to be placed prior to an earlier double column
+% single column figure to be placed prior to an earlier double 
 % figure.
 % Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
 % corrections already built into the system in which case a warning will
@@ -308,6 +308,8 @@
 % to submit to, of course. )
 
 \usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage{pgfplots}
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -424,12 +426,12 @@ RTS games are essential for the wide range of technologies\cite{doc5} in order t
  
 %\hfill August 26, 2015
 
-\subsection{Planet War}
+\section{Planet War}
 As we mentioned previously one of the international AI competition is organized by google community. In 2010 google choose like a game planet wars for it AI challenge competition. In this pager, we work with a version of Glacon game in order to design a fighter bots. A planet war match\cite{doc1} runs on a map with several distributed planets in different positions, such as each of them has a number describes the quantity of starships its owns. In each turn, the number of starship will change. Each planet is owned by a player, opponent or neutral planet(owned by nobody), moreover, each planet belongs to the player (no neutral one) will increase their number of starships after each step according to their growth rate, this rate explain the additional starship's number will generate each planet in each step.
 The main purpose of the planet war game\cite{doc1} is to challenge all players and try to defeat all of them, that mean to destroy all enemy's starships. Planet war is an RTS game by its nature. to achieve a specific objective each player has a limit number of turns to do it and try to win (beat opponent).  \\
 
 \begin{figure}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale = 0.8]
 \draw [fill =gray, ultra thick, gray] (2,1) circle [radius=0.3];
 \node at (2,1) {14};
 \draw [fill =gray, ultra thick, gray] (3,2) circle [radius=0.4];
@@ -493,7 +495,7 @@ starships.}
 
 
 Moreover, the bot's design faces two major problems: the first one \cite{doc1}is that the bot can't store any information about its previous turns like actions it did, actions of its opponent or even the map's state. Since in each turn, the bot meets with an unknown map as it just begins the game for the first time. The second one\cite{doc3} is that the time requires to move(make an action) is just one second. So these difficulties make the bot's design like a great challenge. In this kind of game, everything has a sum of properties\cite{doc1}. Such as, planets have the x and y coordination for their locations in the map, ownersID, number of starship and growth rate. To conquest other planets, the player needs to send fleets for this aim.Each fleet has a playerID parameter, number of starships, source planetID, destination planetID, turn's number need to reach the target. In each simulated turn\cite{doc1}, the player has the ability to send fleets in a battle with other planet's starships with the source planetID and target planetID, while, the player has the ability\cite{doc1} to make just one action per turn. After each move (action) the planets belong to the players\cite{doc5} increase their ship's number according to their growth rate. To make fleets previously sent reach enemies planets its take time of many turns according to the distance between the source planet and the target planet, moreover, if the source and target planet owned by the same player then it considered like a reinforcment\cite{doc1,doc5} by adding the ship's number on the fleet to the number hosted on the target planet. when the fleets reach the target its will make battles with local target ships, otherwise, if the target is a neutral planet, the player must to sends at least one additional ship to own the planet. While, if the target is owned by the enemy the two players will fight until one with the highest starship number owns the planet. When the player sent fleets to reach some goals\cite{doc5}, he can't change their directions. In addition, the player can send more fleet in the next turns even that the first ones do not yet arrive at their destinations. In the end of the match\cite{doc5}, the player with the highest number of starships wins. If a player loses all their starships then the game will end also faster. whilst, the players have the same starship's number at the end of the game there is a draw\cite{doc5}. 
-\subsection{immune system overview}
+\section{immune system overview}
 
 One of the most inspirational things that computational based to solve their problems\cite{doc7} is the biology and its various concepts. Among the natural concepts, the immune system has emerged as one of the important aspects to design optimisation algorithms. An optimization problem\cite{doc6} is to look for the optimum element from a set of potential solutions. There are many optimization problems in all of the scientific areas. For this purpose, many methods and algorithms have been developed. The most useful algorithms\cite{doc6} are heuristics.They include divers algorithms such as artificial bee colony, firefly swarm optimisation, ant colony optimization, genetic algorithms, just to mention a few. While the Artificial immune system (AIS) is a common algorithm devised by Decastro\cite{doc6} that uses population-based heuristic concept. The mechanisms used in the biological immune system against various types of pathogens made this system more interesting\cite{doc9} for computer researchers to exploit its technics. This kind of algorithms is used to solve many different optimization problems in science and technology areas. However, the immune system is more complex and its application in technologies areas is a challenge, likewise, the biological immune system\cite{doc7} still under wide active research, whilst, the AIS is adopted just for few mechanisms inspired from the human immune system including the clonal selection.
 \subsection{natural immune system}
@@ -504,7 +506,7 @@ When the antigen is inside the body, the immune response\cite{doc6} by giving th
 
 \begin{figure}
 \begin{tabular}{c}
-\includegraphics[scale = 0.9]{clonaS}
+\includegraphics[scale = 0.8]{clonaS}
 \end{tabular}
 \caption{Clonal selection mechanism}
 \end{figure}
@@ -533,9 +535,25 @@ where $x_{id}$ represent the dimension d of the antibody i, $x_{max}$ and $x_{mi
 In the evaluation step, the fitness function of every antibody is calculated by computing the affinity values.
 \subsubsection{Ageing operator}
 This factor is used to eliminate the individuals lost more. Indeed, the Ageing operator leads to upgrading the initial population.
-\subsection{AIS pseudocode}
+\subsubsection{Selection process}
+This section will be applied to select N individual to the next generation. 
+%\subsection{AIS pseudocode}
+%\begin{enumerate}
+%\item initialize N individual with random values between 0 and 1.
+%\item For iteration = 1 : maxIteration,
+%\begin{itemize}
+%\item Compute the affinities.
+%\item Clone the antibodies.
+%\item Mutate the antibodies cloned in the previous step.
+%\item Compute the affinities for the new antibodies mutated.
+%\item Applied the selection process to select the next generation
+%\end{itemize} 
+%End For \\
+%Display the optimal solutions. \\
+%End
+%\end{enumerate}
 \begin{figure}
-\begin{tikzpicture}
+\begin{tikzpicture}[scale = 0.8]
 \draw [thick] (4.5,20) circle [radius=0.5];
 \node at (4.5,20) {Start};
 \draw [->] [thick](4.5,19.5) -- (4.5,19);
@@ -555,25 +573,25 @@ This factor is used to eliminate the individuals lost more. Indeed, the Ageing o
 \draw (1,16.5) --(8.5,16.5);
 \draw (1,17) --(1,16.5);
 \draw (8.5,17) --(8.5,16.5);
-\node at (4.5,16.7) {Clonal proliferation};
+\node at (4.5,16.7) {Initial antibodies evaluation};
 \draw [->] [thick](4.5,16.5) -- (4.5,16);
 \draw (1,16) --(8.5,16);
 \draw (1,15.5) --(8.5,15.5);
 \draw (1,15.5) --(1,16);
 \draw (8.5,15.5) --(8.5,16);
-\node at (4.5,15.7) {Maturation};
+\node at (4.5,15.7) {Clonal proliferation};
 \draw [->][thick] (4.5,15.5) -- (4.5,15);
 \draw (1,15) --(8.5,15);
 \draw (1,14.5) --(8.5,14.5);
 \draw (1,14.5) --(1,15);
 \draw (8.5,14.5) --(8.5,15);
-\node at (4.5,14.7) {Antibodies evaluation};
+\node at (4.5,14.7) {Maturation};
 \draw [->][thick] (4.5,14.5) -- (4.5,14);
 \draw (1,14) --(8.5,14);
 \draw (1,13.5) --(8.5,13.5);
 \draw (1,13.5) --(1,14);
 \draw (8.5,13.5) --(8.5,14);
-\node at (4.5,13.7) {Ageing operator};
+\node at (4.5,13.7) {Mutated antibodies evaluation};
 \draw [->][thick] (4.5,13.5) -- (4.5,13);
 \draw (1,13) --(8.5,13);
 \draw (1,12.5) --(8.5,12.5);
@@ -604,8 +622,215 @@ This factor is used to eliminate the individuals lost more. Indeed, the Ageing o
 \caption{AIS diagram}
 \end{figure}
 
+\section{AisBot: the Canquer Bot}
+In the previous sections, we explained that there are two primary constraints in the development of the bot's behaviours. The main constraint is the limited time available for the bot to move (1 second). The second fundamental constraint that is no information could be stored from the previous turns. Based on these two major restrictions, the design performance and the implementation possibilities are limited. However, some researchers have been carried out on the memory solutions based on metaheuristic algorithms to make the bot store some information from its previous actions to determine the next move, but most of them are limited by the time factor; the performance of an EA is limited by time, is almost impossible to run an EA in each step of time (1 second). For the bot's behaviour evaluation it is no possible to improve an action without any feedback from one turn to the next. \\
+The purpose of this investigation is to obtain data which will help to address those research restrictions, while these data were collected using a set of rules in order to optimize the bot's behaviour. \\
+Anyway, in this case of study, we have to perform a single action mode: send starships from a planet to another; to make fleets move in the map, the bot should distinguish between self-planets and the enemy's planets. Based on this simple action, one of the greatest challenges is to determine which planet that will generate the fleets, how many starships will include on it and what is the planet will be targeted. In the next, we will describe our bot's behaviour, following the definition of the parameters used in the optimization. Finally, we will explain the technics governing the bot.
 
 
+
+
+\subsection{AisBot}
+
+\includepdf[scale=0.7,pages=1]{botDiagram}
+
+
+As we mentioned previously, the purpose of this study is to try to optimize the behaviour of a bot during the planet war RTS game. In order to improve our experimentation, we use the AisBot as a conquer bot in this game, and it works as follows: first of all, when a turn is started, the bot tries to determine the base planet based on a score function and the rest of planets are used as colonies.Secondly, the bot decides which planet to attack for the next turn or if it owns additional planet the action will be considered as a reinforcement, in order to reach the target planet, it can take some number of turns. If the bot trying to attack a target is owned by a neutral, the action will be considered as an expansion; however, if it's owned by the enemy, the action will be considered as a conquest. Once the base planet is reinforced by starships coming from colonies, the action will be considered as a Tith. In addition, when colonies that are closed to the target planet than the base is allowed to attack the target by sending fleets, instead of reinforcing the base and this one sends those fleets to the target planet, but move directly to the target. Besides, when a planet was targeted by the bot, it is no possible to decide another attack against the same planet until the first one finished, that is mean, for each fleet sent to perform an attack, it knows the target planet in its data structure. \\
+
+
+
+
+
+In order to improve the behaviour of the bot,  a set of rules is defined included some parameters classified by weights, probabilities and amounts. the parameters signification is : 
+\begin{itemize}
+\item \textit{$Tith_{perc}$}: starships proportions that the bot can sends.
+\item \textit{$Tith_{prob}$}: Tith probability that a colony sends to the base planet.
+\item \textit{$w_{NS}$}: weight of starships number hosted on the planet.
+\item \textit{$w_{DIS}$}: weight of distance between the base and the target planet.
+\item \textit{$w_{GR}$}: weight of growth rate according to the target planet.
+\item \textit{$Pool_{perc}$}: percentage of extra starships can send from the base to the target planet.
+\item \textit{$Support_{perc}$}: Percentage of extra starships from the colony to the target.
+\item \textit{$Support_{prob}$}: Probability of sending extra starships from the colony to the target.
+\end{itemize}
+Furthermore, each parameter takes some values during the optimization process depends on it meaning in the game, our conquer bot will be based on these values to make decisions during the game. To determine the target planet the bot will use a score function define as follow:
+
+\begin{equation}
+Score(p) = \frac{p.NumStarships.w_{NS-DIS}.Dist(base,p)}{1+p.GrowthRate.w_{GR}}
+\end{equation}
+
+Where the $w_{NS-dis}$ and the $w_{GR}$ are weights related successively to starships number, the growth rate for the planet and the distance to reach the target. As we mentioned above the $base$ is the planet which has the highest number of starships and $p$ refer to planet want to evaluate. \\ 
+
+When the Tith and the attack process are performed by the colonies, the base planet also sends starships to attack the target. The number of starships sends to attack is estimated according to the attack mode, if the bot attack mode is expansion where the target does not generate starships during the game that implies the bot will integrate a very specific starships number to be able to defeat the planet target, in the other hand, if the bot attack mode is a conquest, the engine will estimate the number of troops needs to beat the enemy.
+
+
+
+
+\subsection{RandomBot}
+The development kit of google for the planet war game include an example of a bot called RandomBot, the behaviour of this bot is very simple and it works independently of any situation (map). based on it basic behaviour, the bot tries to send fleets randomly and try to perform random attacks without any estimation.If we compare the AisBot and the RandomBot behaviours, we will clearly find that the AisBot behaviour is more complex than the one on RandomBot, and it be able to defeat it in all situation and maps; however, it needs more turns to beat it; for this purpose, the greatest challenge is to make the AisBot's behaviour quite fast by determining the values of parameters shown in the previous section systematically.
+
+
+\section{AisBot: an AIS optimization}
+The aim of this optimization is to make the bot behave faster and be able to win in less number of turns, in order to do that, an artificial immune system (AIS) algorithm used on the set of rules included the parameters that will determine the behaviour of the bot; when the parameters are improved, they are fixed and will be uploaded by the bot in order to play a real scenario. \\
+Therefore, the purpose is to determine the parameters values in order to evaluate the bot's behaviour.The AIS proposed in this study use a floating array to represent all parameters defined previously, while, the clonal proliferation process works on a totally new array with a specific proliferation factor for each parameter according to its fitness. The maturation mechanism is applied to the cloned antibodies by mutating the parameters values using the equation (1) with a probability amount to minimize the bad antibodies. \\
+
+The selection process based on an evaluation technic by implementing tournaments where each cloned individual used to compete with the aim of being selected for the next generation from the best results were chosen. The evaluation of an individual is staged by including their parameters for the AisBot behaviour and placing the bot on a real planet war game against the RandomBot on five maps. \\
+
+The aim of this optimization is to minimize the number of turns needs to win, the best bot is the one that plays fewer turns until win; this kind of ranking bots strongly shown a constraint problem is that each individual was able to win every single game.
+
+\section{Exprementation and results}
+With the aim of testing the CLONALG algorithm, the bot placed under several situations and play several games against the RandomBot. The algorithm parameters can be found on the Table 1:
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c| }
+\hline
+ Number of antibodies & 20 \\ 
+ Number of generations & 15 \\  
+ maximun antbodies Cloned & 72 \\ 
+ \hline   
+\end{tabular}
+\caption{Parameters used in the CLONALG algorithm}
+\label{TABLE 1}
+\end{table}
+
+
+To make a bot under a real game scenario with optimized parameters will take hours, since, to evaluate each individual it took more seconds. The figure (4) showed the evaluation of the number of turns plays by the bot until win, and it appears that the number of turns needs to win in five maps decrease when the evaluation progress.Furthermore, in figure (5) two, the parameters evaluation is shown during the optimization process in amoung fifteen generations. \\
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    title={Turns number evaluation},
+    xlabel={Generation},
+    ylabel={Turns},
+    xmin=0, xmax=16,
+    ymin=0, ymax=800,
+    xtick={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15},
+    ytick={150,300,450,600,750},
+    legend pos=north west,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+ 
+\addplot[
+    color=blue,
+    mark=square,
+    ]
+    coordinates {
+    (1,598)(2,597)(3,557)(4,624)(5,581)(6,528)(7,585)(8,580)(9,650)(10,538)(11,588)(12,605)(13,569)(14,562)(15,552)
+    };
+    \legend{turns by generation}
+ 
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{the evaluation of the number of turns plays by the bot until win in 5 maps, and it appears that the number of turns needs to win in five maps decrease when the evaluation progress}
+\end{figure}
+
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}[scale = 0.8]
+\begin{axis}[
+    title={Turns number evaluation},
+    xlabel={Generation},
+    ylabel={Turns},
+    xmin=0, xmax=16,
+    ymin=0, ymax=1,
+    xtick={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15},
+    ytick={0.15,0.3,0.45,0.6,0.75,0.9},
+    legend pos=outer north east,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+ 
+\addplot[
+    color=blue,
+    ]
+    coordinates{(1,0.651)(2,0.369)(3,0.713)(4,0.427)(5,0.721)(6,0.614)(7,0.34)(8,0.395)(9,0.82)(10,0.216)(11,0.577)(12,0.234)(13,0.7)(14,0.175)(15,0.845)};
+    
+    \addplot[
+    color=red,
+    ]
+    coordinates{(1,0.651)(2,0.344)(3,0.616)(4,0.79)(5,0.33)(6,0.508)(7,0.649)(8,0.097)(9,0.419)(10,0.85)(11,0.151)(12,0.635)(13,0.646)(14,0.601)(15,0.057)};
+    
+    \addplot[
+    color=green,
+    ]
+    coordinates{(1,0.665)(2,0.515)(3,0.483)(4,0.13)(5,0.528)(6,0.771)(7,0.755)(8,0.553)(9,0.672)(10,0.978)(11,0.161)(12,0.602)(13,0.186)(14,0.997)(15,0.447)};
+    
+    \addplot[
+    color=purple,
+    ]
+    coordinates{(1,0.122)(2,0.949)(3,0.603)(4,0.481)(5,0.619)(6,0.817)(7,0.871)(8,0.31)(9,0.552)(10,0.837)(11,0.703)(12,0.41)(13,0.102)(14,0.02)(15,0.323)};
+    
+    \addplot[
+    color=gray,
+    ]
+    coordinates{(1,0.785)(2,0.425)(3,0.318)(4,0.714)(5,0.975)(6,0.746)(7,0.245)(8,0.439)(9,0.426)(10,0.449)(11,0.912)(12,0.301)(13,0.703)(14,0.138)(15,0.124)};
+    
+    \addplot[
+    color=black,
+    ]
+    coordinates{(1,0.113)(2,0.029)(3,0.654)(4,0.132)(5,0.144)(6,0.364)(7,0.226)(8,0.379)(9,0.3)(10,0.393)(11,0.336)(12,0.149)(13,0.642)(14,0.054)(15,0.814)};
+    
+    \addplot[
+    color=orange,
+    ]
+    coordinates{(1,0.64)(2,0.259)(3,0.674)(4,0.127)(5,0.875)(6,0.258)(7,0.067)(8,0.589)(9,0.907)(10,0.166)(11,0.308)(12,0.789)(13,0.587)(14,0.272)(15,0.636)};
+    
+    \addplot[
+    color=brown,
+    ]
+    coordinates{(1,0.366)(2,0.685)(3,0.046)(4,0.602)(5,0.674)(6,0.212)(7,0.176)(8,0.949)(9,0.86)(10,0.807)(11,0.645)(12,0.361)(13,0.096)(14,0.712)(15,0.32)};
+    
+    
+    \legend{$Tith_{perc}$,$Tith_{prob}$,$W_{NS}$,
+    $W_{GR}$,$W_{DIS}$,$Pool_{perc}$,$Support_{perc}$,$Support_{prob}$}
+ 
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{the evaluation of the Parameters during the optimization process}
+\end{figure}
+
+
+
+Table II describes the evaluated results improved by the optimization process where the colonies have a high probability to send Tith to the base (0.84) by sending a fewer hosted starships which can be explained that the colonies have to deserve there starships to defend it-selves in an emergency. On the other hand, the probability for a planet to perform an attack against other ones is around (0.32) and the proportion of sending troops is elevated (64\%) when there is an attack action. Based on this, when a planet performs an attack, the base also can send a high extra starships number for the attack around 81\%. Finally, when the bot trying to determine the target planet to perform the attack, the most important weights based on is the number of starships hosted on the target and the growth rate related to it, the distance has a less priority in this process. \\
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+ & $Tith_perc$ & $Tith_prob$ & $W_NS$ & $W_GR$ & $W_DIS$ & $Pool_perc$ & $Support_perc$ & $Support_prob$ \\ 
+ \hline
+ Before & 0.959 & 0.651 & 0.665 & 0.122 & 0.785 & 0.113 & 0.64 & 0.366 \\  
+ \hline
+ After & 0.057 & 0.845 & 0.447 & 0.323 & 0.124 & 0.814 & 0.636 & 0.32 \\
+ \hline  
+\end{tabular}
+\caption{Parameters used in the CLONALG algorithm}
+\label{TABLE 2}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ Maps & 5 & 10 & 20 & 50 & 100 \\ 
+ \hline
+ Before & 135 & 128 & 161 & 102 & 144 \\  
+ \hline
+ After & 98 & 80 & 70 & 72 & 87 \\
+ \hline  
+\end{tabular}
+\caption{results after 5 games of our AisBot with random parameters and after the optimization against the RandomBot}
+\label{TABLE 3}
+\end{table}
+
+In general, the optimised AisBot is able to defeat the RandomBot in all situations with a minimum number of turns, this can demonstrate that the application of an Evolutionary Algorithm reach some hight capabilities in optimization behaviour even a parametrize behaviour as the one used on the AisBot. There are a lot of challenges can explore all the capabilities of AIS algorithms in the design of the bot's behaviour can offer.
+
+
+\section{conclusions}
 
 
 %\subsubsection{Subsubsection Heading Here}
