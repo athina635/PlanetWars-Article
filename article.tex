@@ -489,8 +489,7 @@ The main purpose of the planet war game\cite{doc1} is to challenge all players a
 \node at (8.1,5.7) {2};
 \node at (8.1,4.7) {8};
 \end{tikzpicture}
-\caption{Simulated of an early stage of a run in Planet Wars. White planets belongs to the player (blue color in the game), dark grey belong to the opponent (red in the game), and light grey planets belong to no player. The triangles are fleets, and the numbers (in planets and triangles) represent the
-starships.}
+\caption{an early stage of a planet wars game, as shown here there are planet categories, the darker grey (red in the game) ones related to the player, the white ones (green in the game) related to the opponent and the neutral planets are coloured by light grey. Fleets presented by triangles and the numbers are the starships included on them.}
 \end{figure}
 
 
@@ -508,7 +507,7 @@ When the antigen is inside the body, the immune response\cite{doc6} by giving th
 \begin{tabular}{c}
 \includegraphics[scale = 0.8]{clonaS}
 \end{tabular}
-\caption{Clonal selection mechanism}
+\caption{The biological clonal selection mechanism and its steps in order to defend the body, starting by detecting of the antigen until removing it.}
 \end{figure}
 
 The clonal selection process will pass with various steps\cite{doc7}:
@@ -553,6 +552,7 @@ This section will be applied to select N individual to the next generation.
 %End
 %\end{enumerate}
 \begin{figure}
+\centering
 \begin{tikzpicture}[scale = 0.8]
 \draw [thick] (4.5,20) circle [radius=0.5];
 \node at (4.5,20) {Start};
@@ -619,10 +619,11 @@ This section will be applied to select N individual to the next generation.
 \draw [thick](4.5,8.8) circle [radius=0.5];
 \node at (4.5,8.8) {End};
 \end{tikzpicture}
-\caption{AIS diagram}
+\caption{The diagram showed the ordered steps for running an AIS algorithm based on clonal selection algorithm (CLONALG) }
 \end{figure}
 
 \section{AisBot: the Canquer Bot}
+
 In the previous sections, we explained that there are two primary constraints in the development of the bot's behaviours. The main constraint is the limited time available for the bot to move (1 second). The second fundamental constraint that is no information could be stored from the previous turns. Based on these two major restrictions, the design performance and the implementation possibilities are limited. However, some researchers have been carried out on the memory solutions based on metaheuristic algorithms to make the bot store some information from its previous actions to determine the next move, but most of them are limited by the time factor; the performance of an EA is limited by time, is almost impossible to run an EA in each step of time (1 second). For the bot's behaviour evaluation it is no possible to improve an action without any feedback from one turn to the next. \\
 The purpose of this investigation is to obtain data which will help to address those research restrictions, while these data were collected using a set of rules in order to optimize the bot's behaviour. \\
 Anyway, in this case of study, we have to perform a single action mode: send starships from a planet to another; to make fleets move in the map, the bot should distinguish between self-planets and the enemy's planets. Based on this simple action, one of the greatest challenges is to determine which planet that will generate the fleets, how many starships will include on it and what is the planet will be targeted. In the next, we will describe our bot's behaviour, following the definition of the parameters used in the optimization. Finally, we will explain the technics governing the bot.
@@ -633,7 +634,8 @@ Anyway, in this case of study, we have to perform a single action mode: send sta
 \subsection{AisBot}
 
 \begin{figure*}
-\begin{tikzpicture}
+\centering
+\begin{tikzpicture}[scale = 0.8]
 \draw [->][ultra thick](-1,20) -- (3,20);
 \draw [->][ultra thick](-1,20) -- (2.8,20);
 \node at (1,20.3) {State of game map};
@@ -762,7 +764,7 @@ Anyway, in this case of study, we have to perform a single action mode: send sta
 \draw [->][thick](2,9.6) -- (1,9.6);
 \node at (2.9,9.6) {\small extra\_attack};
 \end{tikzpicture}
-\caption{ttttttttttt.}
+\caption{The states that are governing the behaviour of the AisBot including the parameters used on the evaluation of the bot's behaviour. these parameters will improve by the clonal selection algorithm (CLONALG).}
 \end{figure*}
 
 %%\includepdf[scale=0.7,pages=1]{botDiagram}
@@ -930,7 +932,7 @@ To make a bot under a real game scenario with optimized parameters will take hou
 
 Table II describes the evaluated results improved by the optimization process where the colonies have a high probability to send Tith to the base (0.84) by sending a fewer hosted starships which can be explained that the colonies have to deserve there starships to defend it-selves in an emergency. On the other hand, the probability for a planet to perform an attack against other ones is around (0.32) and the proportion of sending troops is elevated (64\%) when there is an attack action. Based on this, when a planet performs an attack, the base also can send a high extra starships number for the attack around 81\%. Finally, when the bot trying to determine the target planet to perform the attack, the most important weights based on is the number of starships hosted on the target and the growth rate related to it, the distance has a less priority in this process. \\
 
-\begin{table}[h!]
+\begin{table*}
 \centering
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
@@ -943,9 +945,9 @@ Table II describes the evaluated results improved by the optimization process wh
 \end{tabular}
 \caption{Parameters used in the CLONALG algorithm}
 \label{TABLE 2}
-\end{table}
+\end{table*}
 
-\begin{table}[h!]
+\begin{table*}
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
@@ -958,13 +960,13 @@ Table II describes the evaluated results improved by the optimization process wh
 \end{tabular}
 \caption{results after 5 games of our AisBot with random parameters and after the optimization against the RandomBot}
 \label{TABLE 3}
-\end{table}
+\end{table*}
 
 In general, the optimised AisBot is able to defeat the RandomBot in all situations with a minimum number of turns, this can demonstrate that the application of an Evolutionary Algorithm reach some hight capabilities in optimization behaviour even a parametrize behaviour as the one used on the AisBot. There are a lot of challenges can explore all the capabilities of AIS algorithms in the design of the bot's behaviour can offer.
 
 
 \section{conclusions}
-
+The planet wars game it was classified as an RTS game, where the player (bots) fight against others in real-time. The main aim of this study is to investigate the application of the Evolutionary Algorithms (EAs) and the better results can be obtained in real-world problems, by tunning real game scenarios that used a parametrise behaviour of a bot tuning by an AIS Algorithm. This problem showed that the EAs can improve the evaluation of a hand-coded bot by defeating multiple opponents in different situations in fewer turns. In the other hand, the high capabilities of an evolutionary approach can be improved at least in this type of problems.
 
 %\subsubsection{Subsubsection Heading Here}
 %Subsubsection text here.
